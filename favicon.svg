@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Gravity Digitech logo">
+  <rect width="512" height="512" rx="112" fill="#101010"/>
+  <circle cx="256" cy="256" r="176" fill="#ff5a24"/>
+  <path d="M124 280c50 78 174 112 264 50" fill="none" stroke="#f7f2ea" stroke-width="28" stroke-linecap="round"/>
+  <path d="M390 224c-48-82-172-120-264-58" fill="none" stroke="#f7f2ea" stroke-width="18" stroke-linecap="round" opacity=".82"/>
+  <circle cx="365" cy="199" r="24" fill="#f4c542" stroke="#101010" stroke-width="12"/>
+  <circle cx="150" cy="313" r="17" fill="#f7f2ea"/>
+  <text x="256" y="304" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="126" font-weight="800" letter-spacing="-8" fill="#101010">GD</text>
+</svg>

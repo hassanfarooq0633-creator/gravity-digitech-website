@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gravity Digitech | Toronto Web Design Studio</title>
+<meta name="description" content="Gravity Digitech is a Toronto web design studio building modern websites, WordPress builds, e-commerce stores, brand systems, and AI search-ready digital experiences." />
+<meta name="theme-color" content="#101010" />
+<meta property="og:title" content="Gravity Digitech | Toronto Web Design Studio" />
+<meta property="og:description" content="Web design, WordPress, e-commerce, brand identity, and AI search optimization for businesses that want to be found." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_CA" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Gravity Digitech",
+  "description": "Toronto web design studio offering web design, WordPress development, e-commerce, brand identity, and AI search optimization.",
+  "areaServed": "Toronto, Ontario, Canada",
+  "email": "hello@gravitydigitech.com",
+  "url": "https://gravitydigitech.com",
+  "serviceType": ["Web Design", "WordPress Development", "E-Commerce", "Brand Identity", "SEO", "AI Search Optimization"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #101010;
+    --ink-2: #171717;
+    --paper: #f7f2ea;
+    --paper-2: #ebe1d4;
+    --muted: #756d63;
+    --line: rgba(16, 16, 16, 0.16);
+    --line-dark: rgba(247, 242, 234, 0.22);
+    --accent: #ff5a24;
+    --accent-2: #f4c542;
+    --sage: #b9d5c2;
+    --blue: #a8c8e8;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  a { color: inherit; }
+  .serif {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    transform: translateY(-160%);
+    padding: 0.7rem 1rem;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 999px;
+  }
+  .skip-link:focus { transform: translateY(0); }
+
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem clamp(1rem, 4vw, 3rem);
+    color: var(--paper);
+    background: linear-gradient(to bottom, rgba(16,16,16,0.78), rgba(16,16,16,0));
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(247,242,234,0.78);
+    background: url("favicon.svg") center / cover no-repeat;
+    box-shadow: 0 0 0 2px rgba(16,16,16,0.16);
+    flex: 0 0 auto;
+  }
+  .nav ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.4vw, 2rem);
+    list-style: none;
+  }
+  .nav a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .nav ul a {
+    color: rgba(247,242,234,0.78);
+  }
+  .nav ul a:hover { color: var(--paper); }
+  .menu-toggle {
+    display: none;
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(247,242,234,0.68);
+    border-radius: 999px;
+    background: rgba(16,16,16,0.45);
+    color: var(--paper);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 3px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-height: 48px;
+    padding: 0.8rem 1.15rem;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    background: var(--paper);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 800;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.dark {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn.accent {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+
+  .hero {
+    position: relative;
+    min-height: 92svh;
+    display: grid;
+    align-items: end;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 8rem clamp(1rem, 4vw, 3rem) 4rem;
+    color: var(--paper);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .hero-bg img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.9) contrast(1.08);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(16,16,16,0.9), rgba(16,16,16,0.62) 47%, rgba(16,16,16,0.25)),
+      linear-gradient(to top, rgba(16,16,16,0.85), rgba(16,16,16,0.08) 55%);
+  }
+  .hero-inner {
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.55fr);
+    gap: 2rem;
+    align-items: end;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1.35rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247,242,234,0.76);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+  }
+  h1 {
+    max-width: 10ch;
+    font-size: clamp(4rem, 11vw, 10.8rem);
+    line-height: 0.84;
+    letter-spacing: -0.075em;
+    font-weight: 800;
+  }
+  .hero-copy {
+    max-width: 38rem;
+    padding-bottom: 0.6rem;
+  }
+  .hero-copy p {
+    margin-bottom: 1.35rem;
+    color: rgba(247,242,234,0.82);
+    font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+  }
+  .hero-actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+  .hero-note {
+    margin-top: 1.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .hero-note div {
+    padding: 1rem;
+    color: rgba(247,242,234,0.78);
+    font-weight: 700;
+  }
+  .hero-note div + div { border-left: 1px solid var(--line-dark); }
+
+  .intro {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem clamp(1rem, 4vw, 3rem);
+  }
+  .intro-grid {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line-dark);
+    border: 1px solid var(--line-dark);
+  }
+  .intro-card {
+    background: var(--ink);
+    padding: clamp(1.4rem, 3vw, 2.4rem);
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .intro-card span {
+    color: var(--accent-2);
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 3rem;
+    font-style: italic;
+    line-height: 0.8;
+  }
+  .intro-card h2 {
+    margin-top: 2rem;
+    font-size: clamp(1.55rem, 2.4vw, 2.2rem);
+    letter-spacing: -0.04em;
+  }
+  .intro-card p {
+    margin-top: 0.7rem;
+    color: rgba(247,242,234,0.7);
+  }
+
+  .section {
+    padding: clamp(5rem, 9vw, 8rem) clamp(1rem, 4vw, 3rem);
+  }
+  .section-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: clamp(2.4rem, 5vw, 4.5rem);
+  }
+  .label {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  .section-head h2 {
+    font-size: clamp(2.6rem, 6vw, 6.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+    font-weight: 800;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+  }
+  .image-frame {
+    position: relative;
+    overflow: hidden;
+    min-height: 520px;
+    border-radius: 2px;
+    background: var(--paper-2);
+  }
+  .image-frame img {
+    height: 100%;
+    object-fit: cover;
+  }
+  .image-frame::after {
+    content: "";
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid rgba(247,242,234,0.55);
+    pointer-events: none;
+  }
+  .about-copy {
+    display: grid;
+    gap: 1.2rem;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+  .about-copy strong {
+    color: var(--ink);
+  }
+  .values {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .value {
+    min-height: 150px;
+    padding: 1.2rem;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+  .value:nth-child(2) { background: var(--sage); }
+  .value:nth-child(3) { background: var(--blue); }
+  .value h3 {
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+  }
+  .value p {
+    color: rgba(16,16,16,0.68);
+    font-size: 0.96rem;
+  }
+
+  .services {
+    background: var(--paper-2);
+  }
+  .services-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+  }
+  .services-aside {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    display: grid;
+    gap: 1.4rem;
+  }
+  .services-aside p {
+    color: var(--muted);
+    max-width: 36ch;
+  }
+  .metric-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .metric {
+    padding: 1.2rem;
+  }
+  .metric + .metric { border-left: 1px solid var(--line); }
+  .metric .num {
+    color: var(--accent);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+  .metric .text {
+    margin-top: 0.35rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .service-list {
+    display: grid;
+    border-top: 1px solid var(--line);
+  }
+  .service-row {
+    display: grid;
+    grid-template-columns: 72px 1fr minmax(220px, 0.78fr);
+    gap: 1.4rem;
+    padding: clamp(1.3rem, 3vw, 2rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .service-num {
+    color: var(--accent);
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 2.25rem;
+    font-style: italic;
+    line-height: 1;
+  }
+  .service-row h3 {
+    font-size: clamp(1.4rem, 2.8vw, 2.45rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+  .service-row p {
+    color: var(--muted);
+  }
+
+  .expertise {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .expertise .section-head h2 { color: var(--paper); }
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line-dark);
+    border: 1px solid var(--line-dark);
+  }
+  .expertise-card {
+    min-height: 260px;
+    display: grid;
+    align-content: space-between;
+    gap: 2rem;
+    padding: clamp(1.4rem, 3vw, 2.4rem);
+    background: var(--ink);
+  }
+  .expertise-card h3 {
+    max-width: 16ch;
+    font-size: clamp(1.55rem, 3vw, 2.7rem);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+  }
+  .expertise-card p {
+    max-width: 56ch;
+    color: rgba(247,242,234,0.7);
+  }
+  .expertise-card:nth-child(2) { background: #1f1d19; }
+  .expertise-card:nth-child(3) { background: #221812; }
+  .expertise-card:nth-child(4) { background: #171f1a; }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .work-card {
+    display: grid;
+    grid-template-rows: 320px auto;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .work-card:hover,
+  .work-card:focus-visible,
+  .work-card.active {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    outline: none;
+  }
+  .work-image {
+    position: relative;
+    overflow: hidden;
+  }
+  .work-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .work-card:hover .work-image img { transform: scale(1.05); }
+  .work-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(16,16,16,0.38), rgba(16,16,16,0));
+  }
+  .work-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    padding: 1.25rem;
+  }
+  .work-info h3 {
+    font-size: 1.35rem;
+    letter-spacing: -0.035em;
+  }
+  .work-info span {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .work-arrow {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    flex: 0 0 auto;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .work-card.active .work-arrow {
+    transform: rotate(90deg);
+    background: var(--accent);
+  }
+  .case-study-panel {
+    margin-top: 1.25rem;
+    border: 1px solid var(--line);
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    min-height: 280px;
+  }
+  .case-study-panel[hidden] {
+    display: none;
+  }
+  .case-media {
+    min-height: 280px;
+    background:
+      linear-gradient(135deg, rgba(255,90,36,0.88), rgba(244,197,66,0.78)),
+      repeating-linear-gradient(45deg, transparent 0 20px, rgba(16,16,16,0.16) 20px 21px);
+    border-right: 1px solid var(--line-dark);
+    display: grid;
+    align-content: end;
+    padding: clamp(1.4rem, 3vw, 2.4rem);
+  }
+  .case-kicker {
+    color: rgba(247,242,234,0.78);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .case-media h3 {
+    margin-top: 0.6rem;
+    max-width: 10ch;
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+  }
+  .case-body {
+    padding: clamp(1.4rem, 3vw, 2.4rem);
+    display: grid;
+    gap: 1.4rem;
+  }
+  .case-body p {
+    color: rgba(247,242,234,0.76);
+    font-size: 1.02rem;
+  }
+  .case-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .case-block {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line-dark);
+  }
+  .case-block h4 {
+    margin-bottom: 0.55rem;
+    color: var(--accent-2);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .case-block ul {
+    display: grid;
+    gap: 0.5rem;
+    list-style: none;
+    color: rgba(247,242,234,0.74);
+  }
+  .case-block li::before {
+    content: "/";
+    color: var(--accent);
+    font-weight: 800;
+    margin-right: 0.45rem;
+  }
+
+  .consult {
+    background: var(--accent);
+    color: var(--paper);
+  }
+  .consult-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+  }
+  .consult h2 {
+    max-width: 13ch;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+  }
+  .consult p {
+    max-width: 48ch;
+    margin: 1.4rem 0 2rem;
+    color: rgba(247,242,234,0.86);
+    font-size: 1.08rem;
+  }
+  .consult-box {
+    display: grid;
+    gap: 1px;
+    background: rgba(247,242,234,0.3);
+    border: 1px solid rgba(247,242,234,0.38);
+  }
+  .consult-item {
+    border: 0;
+    background: rgba(16,16,16,0.16);
+    color: var(--paper);
+  }
+  .consult-trigger {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem;
+    text-align: left;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .consult-trigger:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: -4px;
+  }
+  .consult-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 0 0 auto;
+  }
+  .consult-plus {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(247,242,234,0.5);
+    border-radius: 50%;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .consult-item.open .consult-plus {
+    transform: rotate(45deg);
+    background: rgba(247,242,234,0.16);
+  }
+  .consult-detail {
+    max-height: 0;
+    overflow: hidden;
+    color: rgba(247,242,234,0.82);
+    transition: max-height 0.25s ease;
+  }
+  .consult-item.open .consult-detail {
+    max-height: 180px;
+  }
+  .consult-detail p {
+    margin: 0;
+    padding: 0 1.15rem 1.2rem;
+    color: rgba(247,242,234,0.82);
+    font-size: 0.98rem;
+  }
+
+  .contact {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: clamp(1.5rem, 5vw, 5rem);
+  }
+  .contact h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+  }
+  .contact p {
+    color: rgba(247,242,234,0.72);
+  }
+  .contact-details {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+  .contact-details div {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line-dark);
+  }
+  .contact-details h3 {
+    margin-bottom: 0.25rem;
+    color: var(--accent-2);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  label {
+    display: grid;
+    gap: 0.45rem;
+    color: rgba(247,242,234,0.7);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  input, select, textarea {
+    width: 100%;
+    border: 1px solid var(--line-dark);
+    border-radius: 0;
+    background: rgba(247,242,234,0.05);
+    color: var(--paper);
+    font: inherit;
+    padding: 1rem;
+    outline: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+    background: rgba(247,242,234,0.08);
+  }
+  option {
+    color: var(--ink);
+  }
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  .form-note {
+    color: rgba(247,242,234,0.56);
+    font-size: 0.86rem;
+  }
+  .form-status {
+    min-height: 1.4rem;
+    color: var(--accent-2);
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+  .form-button {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+  }
+  .bot-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  footer {
+    padding: 3rem clamp(1rem, 4vw, 3rem);
+    background: var(--ink);
+    color: rgba(247,242,234,0.65);
+    border-top: 1px solid var(--line-dark);
+  }
+  .footer-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  footer a {
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  @media (max-width: 980px) {
+    .nav {
+      flex-wrap: wrap;
+      background: rgba(16,16,16,0.86);
+    }
+    .menu-toggle { display: inline-flex; align-items: center; }
+    .nav ul {
+      display: none;
+      width: 100%;
+      order: 4;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding-top: 0.65rem;
+      border-top: 1px solid rgba(247,242,234,0.18);
+    }
+    .nav ul.active { display: flex; }
+    .nav ul a {
+      display: block;
+      padding: 0.75rem 0;
+    }
+    .hero-inner, .section-head, .about-grid, .services-layout, .consult-panel, .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero {
+      min-height: auto;
+      padding-top: 9rem;
+    }
+    h1 { max-width: 9ch; }
+    .intro-grid, .work-grid {
+      grid-template-columns: 1fr;
+    }
+    .case-study-panel {
+      grid-template-columns: 1fr;
+    }
+    .case-media {
+      border-right: 0;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .values, .expertise-grid {
+      grid-template-columns: 1fr;
+    }
+    .services-aside {
+      position: static;
+    }
+    .service-row {
+      grid-template-columns: 64px 1fr;
+    }
+    .service-row p {
+      grid-column: 2;
+    }
+    .image-frame {
+      min-height: 380px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav {
+      padding: 0.85rem 1rem;
+    }
+    .nav .btn {
+      display: none;
+    }
+    .hero-note, .metric-row, .form-row {
+      grid-template-columns: 1fr;
+    }
+    .hero-note div + div, .metric + .metric {
+      border-left: 0;
+      border-top: 1px solid var(--line-dark);
+    }
+    .service-row {
+      grid-template-columns: 1fr;
+    }
+    .service-row p {
+      grid-column: auto;
+    }
+    .work-card {
+      grid-template-rows: 260px auto;
+    }
+    .case-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary navigation">
+  <a class="brand" href="#main" aria-label="Gravity Digitech home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    Gravity Digitech
+  </a>
+  <ul>
+    <li><a href="#who">WHO WE ARE</a></li>
+    <li><a href="#services">WHAT WE DO</a></li>
+    <li><a href="#work">OUR WORK</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+  <button class="menu-toggle" type="button" aria-expanded="false">MENU</button>
+  <a class="btn" href="#contact">GET IN TOUCH</a>
+</nav>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <picture class="hero-bg" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=1800&amp;q=82" alt="" />
+    </picture>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Toronto web design studio</div>
+        <h1 id="hero-title">Gravity Digitech</h1>
+      </div>
+      <div class="hero-copy">
+        <p>We design and build websites, WordPress systems, e-commerce experiences, brand identities, and AI search-ready pages for businesses that want to be found and chosen.</p>
+        <div class="hero-actions">
+          <a class="btn accent" href="#contact">BOOK A CONSULTATION</a>
+          <a class="btn" href="#services">VIEW SERVICES</a>
+        </div>
+        <div class="hero-note" aria-label="Gravity Digitech commitments">
+          <div>Founder-level attention</div>
+          <div>Strategy, Design, Build, Launch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro" aria-label="Gravity Digitech values">
+    <div class="intro-grid">
+      <article class="intro-card">
+        <span>01</span>
+        <div>
+          <h2>Innovators</h2>
+          <p>We use modern tools and search behavior to build websites that are useful now and ready for what is next.</p>
+        </div>
+      </article>
+      <article class="intro-card">
+        <span>02</span>
+        <div>
+          <h2>Creatives</h2>
+          <p>We shape visual systems, pages, and digital moments that make your business easier to trust.</p>
+        </div>
+      </article>
+      <article class="intro-card">
+        <span>03</span>
+        <div>
+          <h2>Builders</h2>
+          <p>We turn strategy into fast, responsive, practical websites your team can actually run.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="who" aria-labelledby="who-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="label">WHO WE ARE</div>
+        <h2 id="who-title">Passionate thinkers for brands with momentum.</h2>
+      </div>
+      <div class="about-grid">
+        <figure class="image-frame">
+          <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Team planning a digital project around a table" />
+        </figure>
+        <div>
+          <div class="about-copy">
+            <p><strong>Gravity Digitech is a Toronto web design studio for businesses that need more than a nice-looking homepage.</strong></p>
+            <p>We combine strategy, design, development, search structure, and brand clarity so your site can support real growth. The work is direct, collaborative, and built around the customer action that matters most.</p>
+            <p>As a new studio, we are intentionally hands-on. You get senior attention, clear communication, and a site that never disappears behind bigger accounts.</p>
+          </div>
+          <div class="values">
+            <article class="value">
+              <h3>Creativity without clutter</h3>
+              <p>Distinctive design with a clear purpose behind every section.</p>
+            </article>
+            <article class="value">
+              <h3>Strategic structure</h3>
+              <p>Pages planned around search, persuasion, and conversion.</p>
+            </article>
+            <article class="value">
+              <h3>Client collaboration</h3>
+              <p>Your goals guide the work from first conversation to launch.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="label">WHAT WE DO</div>
+        <h2 id="services-title">Creative services designed to pull customers closer.</h2>
+      </div>
+      <div class="services-layout">
+        <aside class="services-aside">
+          <p>We learn your business, audience, offer, and sales path first. Then we design the digital pieces that help people understand, trust, and contact you.</p>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="num">48h</div>
+              <div class="text">Reply turnaround</div>
+            </div>
+            <div class="metric">
+              <div class="num">1:1</div>
+              <div class="text">Founder attention</div>
+            </div>
+          </div>
+          <a class="btn dark" href="#contact">START A PROJECT</a>
+        </aside>
+        <div class="service-list">
+          <article class="service-row">
+            <div class="service-num">01</div>
+            <h3>Web Design &amp; Development</h3>
+            <p>Modern websites with custom layouts, clean code, responsive sections, speed optimization, and conversion-focused page flow.</p>
+          </article>
+          <article class="service-row">
+            <div class="service-num">02</div>
+            <h3>WordPress Builds</h3>
+            <p>Custom WordPress themes and editable content systems that avoid bloated templates and fragile plugin stacks.</p>
+          </article>
+          <article class="service-row">
+            <div class="service-num">03</div>
+            <h3>E-Commerce</h3>
+            <p>Product pages, collection flows, and checkout experiences shaped around clarity, trust, and fewer abandoned carts.</p>
+          </article>
+          <article class="service-row">
+            <div class="service-num">04</div>
+            <h3>AI Search Optimization</h3>
+            <p>Schema, content structure, FAQs, entity clarity, and technical foundations that help your business surface in modern search.</p>
+          </article>
+          <article class="service-row">
+            <div class="service-num">05</div>
+            <h3>Brand Identity</h3>
+            <p>Logos, type, color, voice, and visual systems that make your website and business feel cohesive from day one.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section expertise" aria-labelledby="expertise-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="label">Our expertise</div>
+        <h2 id="expertise-title">End-to-end digital support for growing brands.</h2>
+      </div>
+      <div class="expertise-grid">
+        <article class="expertise-card">
+          <h3>Performance-ready website architecture</h3>
+          <p>Page hierarchy, calls to action, technical SEO, fast loading, and flexible sections that support content growth.</p>
+        </article>
+        <article class="expertise-card">
+          <h3>Creative direction &amp; content systems</h3>
+          <p>Visual direction, brand expression, messaging blocks, and reusable components for a consistent digital presence.</p>
+        </article>
+        <article class="expertise-card">
+          <h3>Search, analytics &amp; optimization</h3>
+          <p>Measurement setup, structured content, metadata, and refinement loops so your site can improve after launch.</p>
+        </article>
+        <article class="expertise-card">
+          <h3>Launch support without the fog</h3>
+          <p>QA, deployment, walkthroughs, handoff notes, and optional maintenance so you know exactly how to move forward.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="label">OUR SELECTED WORK</div>
+        <h2 id="work-title">Blending creativity &amp; strategy across digital experiences.</h2>
+      </div>
+      <div class="work-grid">
+        <article class="work-card" role="button" tabindex="0" data-case="lead-engine" aria-expanded="false" aria-controls="work-details">
+          <figure class="work-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Analytics dashboard on a laptop" />
+          </figure>
+          <div class="work-info">
+            <div>
+              <h3>LEAD ENGINE</h3>
+              <span>Service business website</span>
+            </div>
+            <div class="work-arrow" aria-hidden="true">&rarr;</div>
+          </div>
+        </article>
+        <article class="work-card" role="button" tabindex="0" data-case="storefront" aria-expanded="false" aria-controls="work-details">
+          <figure class="work-image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Customer using an online store on a laptop" />
+          </figure>
+          <div class="work-info">
+            <div>
+              <h3>STOREFRONT</h3>
+              <span>E-commerce experience</span>
+            </div>
+            <div class="work-arrow" aria-hidden="true">&rarr;</div>
+          </div>
+        </article>
+        <article class="work-card" role="button" tabindex="0" data-case="brand-system" aria-expanded="false" aria-controls="work-details">
+          <figure class="work-image">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Website interface open on a laptop" />
+          </figure>
+          <div class="work-info">
+            <div>
+              <h3>BRAND SYSTEM</h3>
+              <span>Identity and launch site</span>
+            </div>
+            <div class="work-arrow" aria-hidden="true">&rarr;</div>
+          </div>
+        </article>
+      </div>
+      <div class="case-study-panel" id="work-details" hidden>
+        <div class="case-media">
+          <div class="case-kicker" data-case-kicker></div>
+          <h3 data-case-title></h3>
+        </div>
+        <div class="case-body">
+          <p data-case-summary></p>
+          <div class="case-columns">
+            <div class="case-block">
+              <h4>What we build</h4>
+              <ul data-case-build></ul>
+            </div>
+            <div class="case-block">
+              <h4>Why it matters</h4>
+              <ul data-case-outcome></ul>
+            </div>
+          </div>
+          <a class="btn accent" data-case-link href="#contact">Talk about this type of project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section consult" aria-labelledby="consult-title">
+    <div class="section-inner consult-panel">
+      <div>
+        <h2 id="consult-title">Get a free website consultation online.</h2>
+        <p>Tell us what you are building, what your current site is missing, and what a win would look like. We will reply with honest next steps.</p>
+        <a class="btn" href="#contact">BOOK A CONSULTATION</a>
+      </div>
+      <div class="consult-box" aria-label="Consultation topics">
+        <div class="consult-item">
+          <button class="consult-trigger" type="button" aria-expanded="false">
+            <span>Website strategy</span>
+            <span class="consult-meta"><span>01</span><span class="consult-plus" aria-hidden="true">+</span></span>
+          </button>
+          <div class="consult-detail">
+            <p>We map the pages you need, what each page should prove, what action visitors should take, and how the site should support leads, sales, or bookings.</p>
+          </div>
+        </div>
+        <div class="consult-item">
+          <button class="consult-trigger" type="button" aria-expanded="false">
+            <span>WordPress or custom build</span>
+            <span class="consult-meta"><span>02</span><span class="consult-plus" aria-hidden="true">+</span></span>
+          </button>
+          <div class="consult-detail">
+            <p>We help decide whether you need an editable WordPress setup, a lighter custom-coded site, or a hybrid approach based on your content, budget, and maintenance needs.</p>
+          </div>
+        </div>
+        <div class="consult-item">
+          <button class="consult-trigger" type="button" aria-expanded="false">
+            <span>Search readiness</span>
+            <span class="consult-meta"><span>03</span><span class="consult-plus" aria-hidden="true">+</span></span>
+          </button>
+          <div class="consult-detail">
+            <p>We review technical SEO, metadata, schema, page structure, local signals, and AI-search-friendly content so your business has a better chance of being found.</p>
+          </div>
+        </div>
+        <div class="consult-item">
+          <button class="consult-trigger" type="button" aria-expanded="false">
+            <span>Launch scope and timeline</span>
+            <span class="consult-meta"><span>04</span><span class="consult-plus" aria-hidden="true">+</span></span>
+          </button>
+          <div class="consult-detail">
+            <p>We outline what is included, what you need to provide, how long the project should take, and what happens before launch, during QA, and after handoff.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="section-inner contact-grid">
+      <div>
+        <div class="label">Let's connect</div>
+        <h2 id="contact-title">We would love to hear from you.</h2>
+        <p>Use the form or email us directly. Submitting sends your message through Web3Forms.</p>
+        <div class="contact-details">
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:hello@gravitydigitech.com">hello@gravitydigitech.com</a>
+          </div>
+          <div>
+            <h3>Location</h3>
+            <p>Toronto, Ontario</p>
+          </div>
+        </div>
+      </div>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="269bfb0d-2ebd-4a1d-a241-7ea95a98a92a" />
+        <input type="hidden" name="from_name" value="Gravity Digitech Website" />
+        <input type="hidden" name="replyto" value="email" />
+        <input class="bot-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+        <div class="form-row">
+          <label>Name
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Subject
+            <input name="subject" type="text" value="New project inquiry" required />
+          </label>
+          <label>Service desired
+            <select name="service" required>
+              <option value="">Select a service</option>
+              <option>Web Design &amp; Development</option>
+              <option>WordPress Build</option>
+              <option>E-Commerce</option>
+              <option>AI Search Optimization</option>
+              <option>Brand Identity</option>
+              <option>Maintenance &amp; Support</option>
+            </select>
+          </label>
+        </div>
+        <label>Message
+          <textarea name="message" required></textarea>
+        </label>
+        <p class="form-note">All fields are required. Messages are sent securely through Web3Forms.</p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        <button class="btn accent form-button" type="submit">SEND MESSAGE</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true"></span> Gravity Digitech</a>
+    </div>
+    <div>2026 &copy; Gravity Digitech. Built in Toronto.</div>
+    <div><a href="mailto:hello@gravitydigitech.com">hello@gravitydigitech.com</a></div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav ul');
+
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.textContent = isOpen ? 'CLOSE' : 'MENU';
+  });
+
+  navLinks?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      if (menuToggle) menuToggle.textContent = 'MENU';
+    });
+  });
+
+  const caseStudies = {
+    'lead-engine': {
+      kicker: 'Service business website',
+      title: 'LEAD ENGINE',
+      summary: 'A lead engine is a website built to turn visitors into calls, bookings, quote requests, or consultation forms. It is ideal for local services, consultants, clinics, contractors, agencies, and B2B providers.',
+      build: [
+        'Clear service pages with strong calls to action',
+        'Local SEO structure, schema, and FAQ sections',
+        'Fast mobile layout with contact points always easy to reach'
+      ],
+      outcome: [
+        'More qualified inquiries from the right customers',
+        'A site that explains trust, pricing, process, and proof',
+        'A stronger foundation for Google, AI search, and paid ads'
+      ]
+    },
+    storefront: {
+      kicker: 'E-commerce experience',
+      title: 'STOREFRONT',
+      summary: 'A storefront is an online selling experience for brands that need customers to browse, understand, trust, and buy without friction. It can be built on Shopify, WooCommerce, or a custom stack.',
+      build: [
+        'Product, collection, cart, and checkout page design',
+        'Trust signals, shipping details, reviews, and offer clarity',
+        'Mobile-first buying flow with analytics-ready tracking'
+      ],
+      outcome: [
+        'A smoother shopping journey from first click to checkout',
+        'Better product storytelling and fewer abandoned carts',
+        'A store structure that can scale with campaigns and launches'
+      ]
+    },
+    'brand-system': {
+      kicker: 'Identity and launch site',
+      title: 'BRAND SYSTEM',
+      summary: 'A brand system gives a business the visual and verbal foundation it needs before launch or relaunch. It connects logo, colors, type, messaging, and website design into one cohesive presence.',
+      build: [
+        'Logo direction, color palette, typography, and UI style',
+        'Homepage, service pages, and core launch content',
+        'Reusable visual rules for social, ads, and future pages'
+      ],
+      outcome: [
+        'A business that feels consistent and credible everywhere',
+        'Faster design decisions after the site launches',
+        'A sharper first impression for customers, partners, and investors'
+      ]
+    }
+  };
+
+  const workCards = document.querySelectorAll('.work-card[data-case]');
+  const casePanel = document.getElementById('work-details');
+  const caseKicker = document.querySelector('[data-case-kicker]');
+  const caseTitle = document.querySelector('[data-case-title]');
+  const caseSummary = document.querySelector('[data-case-summary]');
+  const caseBuild = document.querySelector('[data-case-build]');
+  const caseOutcome = document.querySelector('[data-case-outcome]');
+  const caseLink = document.querySelector('[data-case-link]');
+
+  function renderCaseStudy(caseId) {
+    const caseStudy = caseStudies[caseId];
+    if (!caseStudy || !casePanel) return;
+
+    workCards.forEach((card) => {
+      const isActive = card.dataset.case === caseId;
+      card.classList.toggle('active', isActive);
+      card.setAttribute('aria-expanded', String(isActive));
+    });
+
+    casePanel.hidden = false;
+    caseKicker.textContent = caseStudy.kicker;
+    caseTitle.textContent = caseStudy.title;
+    caseSummary.textContent = caseStudy.summary;
+    caseLink.href = `#contact`;
+
+    caseBuild.replaceChildren(...caseStudy.build.map((item) => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      return li;
+    }));
+
+    caseOutcome.replaceChildren(...caseStudy.outcome.map((item) => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      return li;
+    }));
+
+    casePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  workCards.forEach((card) => {
+    card.addEventListener('click', () => renderCaseStudy(card.dataset.case));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        renderCaseStudy(card.dataset.case);
+      }
+    });
+  });
+
+  const consultItems = document.querySelectorAll('.consult-item');
+
+  consultItems.forEach((item) => {
+    const trigger = item.querySelector('.consult-trigger');
+
+    trigger?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      consultItems.forEach((otherItem) => {
+        otherItem.classList.remove('open');
+        otherItem.querySelector('.consult-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+
+  contactForm?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector('.form-button');
+    const data = new FormData(contactForm);
+
+    if (formStatus) formStatus.textContent = 'Sending...';
+    submitButton.disabled = true;
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to send message.');
+      }
+
+      contactForm.reset();
+      if (formStatus) formStatus.textContent = 'Message sent. We will reply soon.';
+    } catch (error) {
+      if (formStatus) formStatus.textContent = 'Message could not be sent. Please email hello@gravitydigitech.com directly.';
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
