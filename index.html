@@ -11,8 +11,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_CA" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="apple-touch-icon" href="favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,7 +22,7 @@
   "name": "Gravity Digitech",
   "description": "Toronto web design studio offering web design, WordPress development, e-commerce, brand identity, and AI search optimization.",
   "areaServed": "Toronto, Ontario, Canada",
-  "email": "hello@gravitydigitech.com",
+  "email": "info@gravitydigitech.com",
   "url": "https://gravitydigitech.com",
   "serviceType": ["Web Design", "WordPress Development", "E-Commerce", "Brand Identity", "SEO", "AI Search Optimization"]
 }
@@ -180,13 +182,25 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    z-index: -2;
+    z-index: -3;
   }
   .hero-bg img {
     height: 100%;
     object-fit: cover;
     object-position: center;
     filter: saturate(0.9) contrast(1.08);
+  }
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.88;
+  }
+  .hero-visual canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
   .hero::after {
     content: "";
@@ -198,6 +212,8 @@
       linear-gradient(to top, rgba(16,16,16,0.85), rgba(16,16,16,0.08) 55%);
   }
   .hero-inner {
+    position: relative;
+    z-index: 1;
     max-width: 1320px;
     width: 100%;
     margin: 0 auto;
@@ -910,6 +926,9 @@
     .case-columns {
       grid-template-columns: 1fr;
     }
+    .hero-visual {
+      opacity: 0.58;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -945,6 +964,9 @@
     <picture class="hero-bg" aria-hidden="true">
       <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=1800&amp;q=82" alt="" />
     </picture>
+    <div class="hero-visual" aria-hidden="true">
+      <canvas id="gravityCanvas"></canvas>
+    </div>
     <div class="hero-inner">
       <div>
         <div class="eyebrow">Toronto web design studio</div>
@@ -1228,7 +1250,7 @@
         <div class="contact-details">
           <div>
             <h3>Email</h3>
-            <a href="mailto:hello@gravitydigitech.com">hello@gravitydigitech.com</a>
+            <a href="mailto:info@gravitydigitech.com">info@gravitydigitech.com</a>
           </div>
           <div>
             <h3>Location</h3>
@@ -1239,7 +1261,6 @@
       <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="269bfb0d-2ebd-4a1d-a241-7ea95a98a92a" />
         <input type="hidden" name="from_name" value="Gravity Digitech Website" />
-        <input type="hidden" name="replyto" value="email" />
         <input class="bot-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
         <div class="form-row">
           <label>Name
@@ -1282,10 +1303,152 @@
       <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true"></span> Gravity Digitech</a>
     </div>
     <div>2026 &copy; Gravity Digitech. Built in Toronto.</div>
-    <div><a href="mailto:hello@gravitydigitech.com">hello@gravitydigitech.com</a></div>
+    <div><a href="mailto:info@gravitydigitech.com">info@gravitydigitech.com</a></div>
   </div>
 </footer>
 
+<script type="module">
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
+
+  const gravityCanvas = document.getElementById('gravityCanvas');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (gravityCanvas) {
+    const renderer = new THREE.WebGLRenderer({
+      canvas: gravityCanvas,
+      alpha: true,
+      antialias: true
+    });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    camera.position.set(0, 0, 8);
+
+    const rig = new THREE.Group();
+    scene.add(rig);
+
+    const glowMaterial = new THREE.MeshStandardMaterial({
+      color: 0xff5a24,
+      emissive: 0xff5a24,
+      emissiveIntensity: 0.35,
+      roughness: 0.38,
+      metalness: 0.08,
+      transparent: true,
+      opacity: 0.86
+    });
+    const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.78, 2), glowMaterial);
+    rig.add(core);
+
+    const ringMaterials = [
+      new THREE.MeshBasicMaterial({ color: 0xf7f2ea, transparent: true, opacity: 0.78 }),
+      new THREE.MeshBasicMaterial({ color: 0xff5a24, transparent: true, opacity: 0.72 }),
+      new THREE.MeshBasicMaterial({ color: 0xf4c542, transparent: true, opacity: 0.82 })
+    ];
+
+    const orbits = [
+      { radius: 1.75, tube: 0.012, tilt: [1.18, 0.18, -0.22], speed: 0.32, material: ringMaterials[0] },
+      { radius: 2.28, tube: 0.01, tilt: [1.38, -0.55, 0.35], speed: -0.22, material: ringMaterials[1] },
+      { radius: 2.82, tube: 0.009, tilt: [1.05, 0.75, -0.08], speed: 0.16, material: ringMaterials[2] }
+    ].map((orbit, index) => {
+      const orbitGroup = new THREE.Group();
+      orbitGroup.rotation.set(...orbit.tilt);
+      orbitGroup.userData.speed = orbit.speed;
+
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(orbit.radius, orbit.tube, 12, 160),
+        orbit.material
+      );
+      orbitGroup.add(ring);
+
+      const node = new THREE.Mesh(
+        new THREE.SphereGeometry(index === 2 ? 0.13 : 0.09, 24, 16),
+        new THREE.MeshStandardMaterial({
+          color: index === 2 ? 0xf4c542 : 0xf7f2ea,
+          emissive: index === 2 ? 0xf4c542 : 0xff5a24,
+          emissiveIntensity: index === 2 ? 0.4 : 0.22,
+          roughness: 0.3
+        })
+      );
+      node.position.set(orbit.radius, 0, 0);
+      orbitGroup.add(node);
+
+      rig.add(orbitGroup);
+      return orbitGroup;
+    });
+
+    const particleCount = 130;
+    const particlePositions = new Float32Array(particleCount * 3);
+    for (let index = 0; index < particleCount; index += 1) {
+      const spread = 5.4;
+      particlePositions[index * 3] = (Math.random() - 0.5) * spread;
+      particlePositions[index * 3 + 1] = (Math.random() - 0.5) * spread * 0.68;
+      particlePositions[index * 3 + 2] = (Math.random() - 0.5) * spread * 0.56;
+    }
+    const particleGeometry = new THREE.BufferGeometry();
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+    const particles = new THREE.Points(
+      particleGeometry,
+      new THREE.PointsMaterial({
+        color: 0xf7f2ea,
+        size: 0.026,
+        transparent: true,
+        opacity: 0.5,
+        sizeAttenuation: true
+      })
+    );
+    rig.add(particles);
+
+    scene.add(new THREE.AmbientLight(0xf7f2ea, 1.2));
+    const keyLight = new THREE.PointLight(0xff5a24, 2.8, 18);
+    keyLight.position.set(3, 2.5, 4);
+    scene.add(keyLight);
+    const rimLight = new THREE.PointLight(0xf4c542, 1.7, 16);
+    rimLight.position.set(-3, -1.8, 3);
+    scene.add(rimLight);
+
+    const pointer = { x: 0, y: 0 };
+    window.addEventListener('pointermove', (event) => {
+      pointer.x = (event.clientX / window.innerWidth - 0.5) * 2;
+      pointer.y = (event.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    function resizeScene() {
+      const width = gravityCanvas.clientWidth || window.innerWidth;
+      const height = gravityCanvas.clientHeight || window.innerHeight;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+
+      const compact = width < 760;
+      rig.position.set(compact ? 0.62 : 2.1, compact ? 1.12 : 0.18, 0);
+      rig.scale.setScalar(compact ? 0.62 : 1);
+    }
+
+    const clock = new THREE.Clock();
+
+    function renderScene() {
+      const time = clock.getElapsedTime();
+      core.rotation.set(time * 0.12 + pointer.y * 0.06, time * 0.28 + pointer.x * 0.08, time * 0.08);
+      rig.rotation.y = Math.sin(time * 0.18) * 0.12 + pointer.x * 0.1;
+      rig.rotation.x = Math.cos(time * 0.16) * 0.08 - pointer.y * 0.06;
+      particles.rotation.y = time * 0.035;
+
+      orbits.forEach((orbit, index) => {
+        orbit.rotation.z = time * orbit.userData.speed + index * 0.65;
+      });
+
+      renderer.render(scene, camera);
+      if (!reducedMotion) requestAnimationFrame(renderScene);
+    }
+
+    window.addEventListener('resize', resizeScene);
+    resizeScene();
+    renderScene();
+  }
+</script>
 <script>
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav ul');
@@ -1450,7 +1613,7 @@
       contactForm.reset();
       if (formStatus) formStatus.textContent = 'Message sent. We will reply soon.';
     } catch (error) {
-      if (formStatus) formStatus.textContent = 'Message could not be sent. Please email hello@gravitydigitech.com directly.';
+      if (formStatus) formStatus.textContent = 'Message could not be sent. Please email info@gravitydigitech.com directly.';
     } finally {
       submitButton.disabled = false;
     }
